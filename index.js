@@ -22,6 +22,33 @@ module.exports = function(config) {
     var npm = app.npm;
 
     /**
+     * Prompts the user to ask if they want to install the packages listed on
+     * `app.cache.install.dependencies` or `app.cache.install.devDependencies` based on
+     * the given `type`.
+     *
+     * ```js
+     * app.npm.prompt('dependencies', function(err) {
+     *   if (err) return console.error(err):
+     * });
+     * ```
+     * @name .npm.prompt
+     * @param {String} `type` dependency type to install (dependencies or devDependencies)
+     * @param {Object} `options`
+     * @param {Function} `cb` Callback
+     * @api public
+     */
+
+    utils.define(npm, 'prompt', function(type, options, cb) {
+      if (typeof options === 'function') {
+        cb = options;
+        options = {};
+      }
+
+      var opts = utils.extend({type: type}, options);
+      install([], opts, cb);
+    });
+
+    /**
      * Prompts the user to ask if they want to install the given package(s).
      * Requires the [base-questions][] plugin to be registered first.
      *
