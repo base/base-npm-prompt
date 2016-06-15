@@ -52,8 +52,9 @@
       "gulp-format-md"
     ],
     "reflinks": [
+      "base",
       "verb",
-      "base"
+      "base-questions"
     ],
     "lint": {
       "reflinks": true
