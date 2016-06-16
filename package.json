@@ -23,22 +23,19 @@
   "dependencies": {
     "async-each": "^1.0.0",
     "base-questions": "^0.6.6",
-    "debug": "^2.2.0",
     "define-property": "^0.2.5",
     "extend-shallow": "^2.0.1",
     "is-valid-app": "^0.1.1",
     "lazy-cache": "^2.0.1",
-    "log-utils": "^0.1.4",
-    "node-foo": "^0.2.3"
+    "log-utils": "^0.1.4"
   },
   "devDependencies": {
     "base": "^0.11.0",
-    "base-npm": "^0.3.3",
+    "base-npm": "^0.4.0",
     "base-pkg": "^0.2.4",
     "delete": "^0.3.2",
     "gulp-format-md": "^0.1.9",
-    "mocha": "^2.4.5",
-    "node-foo": "^0.2.3",
+    "mocha": "^2.5.3",
     "pkg-store": "^0.2.2"
   },
   "keywords": [],
