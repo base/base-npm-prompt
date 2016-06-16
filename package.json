@@ -1,7 +1,7 @@
 {
   "name": "base-npm-prompt",
   "description": "Extends the base-npm plugin with prompts for intalling dependencies as a part of a build-workflow.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "homepage": "https://github.com/node-base/base-npm-prompt",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "repository": "node-base/base-npm-prompt",
