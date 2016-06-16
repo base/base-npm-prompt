@@ -4,7 +4,6 @@ require('mocha');
 var assert = require('assert');
 var path = require('path');
 var Base = require('base');
-var questions = require('base-questions');
 var Pkg = require('pkg-store');
 var del = require('delete');
 var npm = require('base-npm');
@@ -15,6 +14,8 @@ var fixtures = path.resolve.bind(path, __dirname, 'fixtures');
 var cwd = process.cwd();
 
 describe('base-npm-prompt', function() {
+  this.timeout(20000);
+
   beforeEach(function() {
     process.chdir(fixtures());
     pkg = new Pkg(process.cwd());
@@ -129,7 +130,6 @@ describe('base-npm-prompt', function() {
   });
 
   it('should ask to install the given package', function(cb) {
-    this.timeout(20000);
     app.npm.askInstall(['helper-example'], {noprompt: true}, function(err) {
       if (err) return cb(err);
       assert(pkg.has('devDependencies.helper-example'));
@@ -138,7 +138,6 @@ describe('base-npm-prompt', function() {
   });
 
   it('should ask to check for and install the given package', function(cb) {
-    this.timeout(20000);
     app.npm.checkInstall(['helper-example'], {noprompt: true}, function(err) {
       if (err) return cb(err);
       assert(pkg.has('devDependencies.helper-example'));
@@ -147,7 +146,6 @@ describe('base-npm-prompt', function() {
   });
 
   it('should ask to install dependencies listed on `app.cache.install.dependencies', function(cb) {
-    this.timeout(20000);
     app.set('cache.install.dependencies', ['node-foo']);
     app.npm.prompt('dependencies', {noprompt: true}, function(err) {
       if (err) return cb(err);
@@ -157,7 +155,6 @@ describe('base-npm-prompt', function() {
   });
 
   it('should ask to install devDependencies listed on `app.cache.install.devDependencies', function(cb) {
-    this.timeout(20000);
     app.set('cache.install.devDependencies', ['node-foo']);
     app.npm.prompt('devDependencies', {noprompt: true}, function(err) {
       if (err) return cb(err);
