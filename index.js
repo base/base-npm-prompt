@@ -45,7 +45,7 @@ module.exports = function(config) {
       }
 
       var opts = utils.extend({type: type}, options);
-      install([], opts, cb);
+      install(opts, cb);
     });
 
     /**
@@ -86,6 +86,11 @@ module.exports = function(config) {
      */
 
     utils.define(npm, 'checkInstall', function(names, options, cb) {
+      if (typeof names !== 'string' && !Array.isArray(names)) {
+        npm.checkInstall([], names, options);
+        return;
+      }
+
       if (typeof options === 'function') {
         cb = options;
         options = {};
@@ -131,14 +136,19 @@ module.exports = function(config) {
      */
 
     function install(names, options, cb) {
-      // register the base questions plugin
-      if (typeof app.ask !== 'function') {
-        app.use(utils.questions());
+      if (typeof names !== 'string' && !Array.isArray(names)) {
+        install([], names, options);
+        return;
       }
 
       if (typeof options === 'function') {
         cb = options;
         options = {};
+      }
+
+      // register the base questions plugin
+      if (typeof app.ask !== 'function') {
+        app.use(utils.questions());
       }
 
       // extend `data` onto options, which is used
