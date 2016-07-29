@@ -11,6 +11,8 @@
   "license": "MIT",
   "files": [
     "index.js",
+    "LICENSE",
+    "README.md",
     "utils.js"
   ],
   "main": "index.js",
@@ -22,12 +24,12 @@
   },
   "dependencies": {
     "async-each": "^1.0.0",
-    "base-questions": "^0.6.6",
+    "base-questions": "^0.7.3",
     "define-property": "^0.2.5",
     "extend-shallow": "^2.0.1",
-    "is-valid-app": "^0.1.1",
+    "is-valid-app": "^0.2.0",
     "lazy-cache": "^2.0.1",
-    "log-utils": "^0.1.4"
+    "log-utils": "^0.2.1"
   },
   "devDependencies": {
     "base": "^0.11.0",
@@ -38,7 +40,23 @@
     "mocha": "^2.5.3",
     "pkg-store": "^0.2.2"
   },
-  "keywords": [],
+  "keywords": [
+    "api",
+    "app",
+    "application",
+    "base",
+    "baseplugin",
+    "building-blocks",
+    "create",
+    "framework",
+    "npm",
+    "plugin",
+    "plugins",
+    "prompt",
+    "tool",
+    "toolkit",
+    "tools"
+  ],
   "verb": {
     "toc": false,
     "layout": "default",
@@ -50,8 +68,8 @@
     ],
     "reflinks": [
       "base",
-      "verb",
-      "base-questions"
+      "base-questions",
+      "verb"
     ],
     "lint": {
       "reflinks": true
