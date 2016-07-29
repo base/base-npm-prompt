@@ -108,13 +108,12 @@ module.exports = function(config) {
           npm.exists(answer, function(err, exists) {
             if (err) return cb(err);
 
-            // TODO: turn this into a report
-            console.log(`
-  Package exists
-  --------------`);
-
             utils.each(Object.keys(exists), function(key, next) {
-              console.log(`  ${exists[key] ? utils.log.green(utils.log.success) : utils.log.red(utils.log.error)}  ${key}`);
+              if (exists[key]) {
+                console.log(utils.log.green(utils.log.success), key);
+              } else {
+                console.log(utils.log.red(utils.log.error), key);
+              }
               if (exists[key] === false) return next();
               npm[type](key, next);
             }, cb);
